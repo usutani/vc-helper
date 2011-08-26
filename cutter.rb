@@ -4,7 +4,7 @@ dst_prefix = "_"
 
 args = ARGV.dup
 opts_parser = OptionParser.new do |opts|
-  opts.on('--dst DST_PREFIX') { |opt| $dst_prefix = opt }
+  opts.on('--dst DST_PREFIX') { |opt| dst_prefix = opt }
 end
 args = opts_parser.parse!(args)
 
