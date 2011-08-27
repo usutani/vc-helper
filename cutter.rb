@@ -4,6 +4,7 @@ def usage
   puts "Usage: ruby cutter.rb [--dst DST_PREFIX] <file(s)>"; exit
 end
 
+Encoding.default_external = Encoding::CP932
 dst_prefix = "_"
 
 args = ARGV.dup
@@ -17,7 +18,7 @@ usage unless src_files
 
 Dir.glob(src_files) do |src_file|
   dst_file = dst_prefix + src_file
-  s = File.read(src_file, :encoding => Encoding::CP932)
+  s = File.read(src_file)
   
   # remove line comments
   if s.gsub!(/^[ \t]*\/\/.*\n/, "")
